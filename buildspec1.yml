@@ -26,6 +26,6 @@ phases:
     commands:
       - echo "Build completed successfully!"
 
-  artifacts:
-    files:
+artifacts:
+  files:
       - target/*.jar
