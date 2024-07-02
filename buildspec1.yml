@@ -18,9 +18,9 @@ phases:
       - echo "Building the Spring Boot application..."
       - mvn clean install
       - echo "Building Docker image..."
-      - docker build -t "$DOCKER_REGISTRY_USERNAME/springboot-codebuild-javaapp:july01-07" .
+      - docker build -t "$DOCKER_REGISTRY_USERNAME/springboot-codebuild-javaapp:july02-07" .
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin docker.io
-      - docker push "$DOCKER_REGISTRY_USERNAME/springboot-codebuild-javaapp:july01-07"
+      - docker push "$DOCKER_REGISTRY_USERNAME/springboot-codebuild-javaapp:july02-07"
       - docker logout
   post_build:
     commands:
