@@ -1,0 +1,7 @@
+version: "3.3"
+services:
+  web:
+    image: sbiswas232/springboot-javaapp:v21-08
+    ports:
+      - "80:8080"
+    container_name: springboot-container
