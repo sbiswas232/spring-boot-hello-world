@@ -1,7 +1,38 @@
-version: "3.3"
+version: "3.8"
 services:
-  web:
-    image: sbiswas232/springboot-javaapp:v21-08
+  java:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sbiswas232/springboot-helloworld-slim:31july25
+    container_name: helloworld-cont
     ports:
-      - "80:8080"
-    container_name: springboot-container
+      - "8080:8080"
+    networks:
+      - helloworld-nw
+    volumes:
+      - helloworld:/app
+    restart: always
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: nginx
+    container_name: nginx-cont
+    ports:
+      - "80:80"
+    networks:
+      - helloworld-nw
+    depends_on:
+      - java
+    restart: always
+
+
+volumes:
+  helloworld:
+    driver: local
+
+networks:
+  helloworld-nw:
+    driver: bridge
