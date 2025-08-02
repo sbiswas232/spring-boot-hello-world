@@ -1,2 +1,3 @@
-FROM nginx:1.13-alpine
+FROM nginx:alpine-perl
+RUN rm /etc/nginx/conf.d/default.conf
 COPY conf /etc/nginx/conf.d/default.conf
